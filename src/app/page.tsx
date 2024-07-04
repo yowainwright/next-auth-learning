@@ -1,8 +1,5 @@
-import { getServerSession } from "next-auth/next"
-import ClientPage from "./ClientPage"
+import ClientWrapper from "./ClientWrapper"
 
-export default async function Home() {
-  const session = await getServerSession()
-
-  return <ClientPage session={session} />
+export default function Home() {
+  return <ClientWrapper />
 }

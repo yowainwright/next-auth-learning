@@ -31,8 +31,9 @@ export const ProfileImage = ({ src }: ProfileImageProps) =>
   : null;
 
 export default function ClientPage({ session: serverSession }: ClientPageProps) {
-  const { data: session, status } = useSession()
-  console.log({ session, serverSession, status })
+  const sessionData = useSession()
+  console.log({ sessionData, serverSession })
+  const { data: session, status } = sessionData
   const currentSession = session ?? serverSession
   const router = useRouter()
   const { image: src, name = '', email = '', isOrgMember = false } = (currentSession?.user || {}) as User;
@@ -41,15 +42,14 @@ export default function ClientPage({ session: serverSession }: ClientPageProps) 
     return null
   }
 
-  const handler = () => signOut()
-  if (status === "loading") return <Loader />
+  if (status === "loading") return <div>Loading...</div>
 
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center">
       <ProfileImage src={src} />
       <p className="text-2xl mb-2">Welcome <span className="font-bold">{name}</span>. Signed In As</p>
       <p className="font-bold mb-4">{email}</p>
-      <button className="bg-red-600 py-2 px-6 rounded-md" onClick={handler}>Sign out</button>
+      <button className="bg-red-600 py-2 px-6 rounded-md" onClick={() => signOut()}>Sign out</button>
     </div>
   )
 }

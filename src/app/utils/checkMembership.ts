@@ -16,9 +16,8 @@ export const checkMembership = async (
         'X-GitHub-Api-Version': '2022-11-28'
       }
     });
-    console.log({ resp });
     const orgs = resp?.data;
-    return orgs.some(org => org.login === 'goodrx');
+    return orgs.some(org => org?.login?.toLowerCase() === 'goodrx');
   } catch (error) {
     console.error('Error checking organization membership:', error);
     return false;

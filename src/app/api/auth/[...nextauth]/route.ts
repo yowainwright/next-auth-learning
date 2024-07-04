@@ -15,16 +15,16 @@ const handler = NextAuth({
     }),
   ],
   callbacks: {
-    async signIn({ account }) {
-      console.log({ account });
+    async signIn(options) {
+      const { account } = options;
       if (account?.access_token) {
         const accessToken = account.access_token;
         return await checkMembership(accessToken);
       }
       return false;
     },
-    async jwt({ token, account }) {
-      console.log({ account, token });
+    async jwt(options) {
+      const { account, token } = options;
       const accessToken = account?.access_token;
       if (accessToken) {
         token.accessToken = accessToken;
@@ -32,8 +32,8 @@ const handler = NextAuth({
       }
       return token;
     },
-    session({ session, token }) {
-      console.log({ session, token });
+    session(options) {
+      const { session, token } = options;
       return {
         ...session,
         user: {
