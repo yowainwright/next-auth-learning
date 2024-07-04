@@ -2,11 +2,18 @@
 
 This is a Next Auth Learning Project.
 
-To try it out: 
-- Copy `.env.example` as `.env.local` and follow the text instructions. 
-Then run \*`n i auto` and `pnpm i && pnpm dev`. Open [http://localhost:3000](http://localhost:3000) to see the result.
+---
 
-> *These commands assume you have `n` or `nvm` for node and `pnpm` for package management installed. Run `brew install n` and `npm install pnpm -g` if not.
+## Try it out 
+
+- Copy `.env.example` as `.env.local` and follow the text instructions. 
+- Then, run \*`n i auto` and `pnpm i && pnpm dev`. Open [http://localhost:3000](http://localhost:3000) to see the result.
+
+> [!NOTE]
+> *These commands assume you have `n` (or `nvm`) for node and `pnpm` for package management installed.<br> 
+> _Run `brew install n` and `npm install pnpm -g` if not._
+
+---
 
 ## What will I see after setup?
 
