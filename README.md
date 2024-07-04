@@ -10,7 +10,7 @@ Then run \*`n i auto` and `pnpm i && pnpm dev`. Open [http://localhost:3000](htt
 
 ## What will I see after setup?
 
-You will see a basic screen with a login button in your browser. By clicking on the login button, you will take you to the Github auth page. Once you authenticate with Github, if you're a member of the GoodRx org, you will be redirected back to the app home page with your Github username displayed. If you're not a member of the GoodRx org, you'll be directed to an unauthorized page with the option to sign in appropriately.
+You will see a basic screen with a login button in your browser. By clicking on the login button, you will be taken to a Github auth page. Once you authenticate with Github, if you're a member of the GoodRx org, you will be redirected back to the app home page with your Github username displayed. If you're not a member of the GoodRx org, you'll be directed to an unauthorized page with the option to sign in appropriately.
 
 - You can test failures, etc by changing the org in `src/app/utils/checkMembership.ts`, or signing in with a non-member account.
 - You can sign out by clicking the "Sign out" button and "Sign in" again.
