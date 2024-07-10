@@ -16,8 +16,10 @@ export const checkMembership = async (
         'X-GitHub-Api-Version': '2022-11-28'
       }
     });
+    const githubOrg = process.env.NEXT_PUBLIC_GITHUB_ORG;
+    if (!githubOrg) throw new Error('No GitHub organization specified');
     const orgs = resp?.data;
-    return orgs.some(org => org?.login?.toLowerCase() === 'goodrx');
+    return orgs.some(org => org?.login?.toLowerCase() === githubOrg);
   } catch (error) {
     console.error('Error checking organization membership:', error);
     return false;
